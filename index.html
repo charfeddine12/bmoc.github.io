@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charfeddine BENMOHAMED - Ingénieur Full-Stack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" data-fr="Accueil" data-en="Home">Accueil</a></li>
+                <li><a href="#about" class="nav-link" data-fr="À Propos" data-en="About">À Propos</a></li>
+                <li><a href="#skills" class="nav-link" data-fr="Compétences" data-en="Skills">Compétences</a></li>
+                <li><a href="#experience" class="nav-link" data-fr="Expérience" data-en="Experience">Expérience</a></li>
+                <li><a href="#certifications" class="nav-link" data-fr="Certifications" data-en="Certifications">Certifications</a></li>
+                <li><a href="#contact" class="nav-link" data-fr="Contact" data-en="Contact">Contact</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h3 class="hero-subtitle" data-fr="Bonjour, je suis" data-en="Hello, I'm">Bonjour, je suis</h3>
+                <h1 class="hero-title">Charfeddine BENMOHAMED</h1>
+                <h2 class="hero-role">
+                    <span class="typed-text"></span>
+                    <span class="cursor">|</span>
+                </h2>
+                <p class="hero-description" data-fr="Expert Java certifié Kafka & Liferay DXP avec 8 ans d'expérience dans le développement d'applications d'entreprise" data-en="Java Expert certified in Kafka & Liferay DXP with 8 years of experience in enterprise application development">
+                    Expert Java certifié Kafka & Liferay DXP avec 8 ans d'expérience
+                    dans le développement d'applications d'entreprise
+                </p>
+                <div class="hero-badges">
+                    <span class="badge" data-fr="Expert Java" data-en="Java Expert">Expert Java</span>
+                    <span class="badge" data-fr="Certifié Kafka" data-en="Kafka Certified">Certifié Kafka</span>
+                    <span class="badge" data-fr="Certifié Liferay" data-en="Liferay Certified">Certifié Liferay</span>
+                    <span class="badge">Microservices</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> <span data-fr="Me Contacter" data-en="Contact Me">Me Contacter</span>
+                    </a>
+                    <a href="CV_Charfeddine_BENMOHAMED.pdf" class="btn btn-secondary" id="downloadCV" download>
+                        <i class="fas fa-download"></i> <span data-fr="Télécharger CV" data-en="Download CV">Télécharger CV</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <img src="charfeddine.png" alt="Charfeddine BENMOHAMED" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <div class="profile-info">
+                        <span class="experience-years">8+</span>
+                        <span class="experience-label" data-fr="Années d'expérience" data-en="Years of Experience">Années d'expérience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-fr="À Propos" data-en="About">À Propos</h2>
+            <div class="about-content">
+                <div class="about-cards">
+                    <div class="info-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3 data-fr="Formation" data-en="Education">Formation</h3>
+                        <p data-fr="Ingénieur Logiciel (2018)" data-en="Software Engineer (2018)">Ingénieur Logiciel (2018)</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h3 data-fr="Expérience Actuelle" data-en="Current Experience">Expérience Actuelle</h3>
+                        <p>MGEN - Data Team</p>
+                        <p>Microservices & Kafka Streaming</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-language"></i>
+                        <h3 data-fr="Langues" data-en="Languages">Langues</h3>
+                        <p data-fr="Français - Natif" data-en="French - Native">Français - Natif</p>
+                        <p data-fr="Anglais - B2 (Certifié iCIMS)" data-en="English - B2 (iCIMS Certified)">Anglais - B2 (Certifié iCIMS)</p>
+                    </div>
+                </div>
+                
+                <!-- Professional Profiles Section -->
+                <div class="professional-profiles">
+                    <h3 class="profiles-title" data-fr="Profils Professionnels" data-en="Professional Profiles">Profils Professionnels</h3>
+                    <div class="profile-badges">
+                        <a href="https://stackoverflow.com/users/7231760/benmohamed-charfeddine" target="_blank" rel="noopener noreferrer" class="profile-badge">
+                            <i class="fab fa-stack-overflow"></i>
+                            <div class="badge-content">
+                                <span class="badge-label">Stack Overflow</span>
+                                <span class="badge-value" data-fr="Contributeur Actif" data-en="Active Contributor">Contributeur Actif</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/charfeddine12" target="_blank" rel="noopener noreferrer" class="profile-badge">
+                            <i class="fab fa-github"></i>
+                            <div class="badge-content">
+                                <span class="badge-label">GitHub</span>
+                                <span class="badge-value" data-fr="Projets Open Source" data-en="Open Source Projects">Projets Open Source</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/charfeddine-benmohamed/" target="_blank" rel="noopener noreferrer" class="profile-badge">
+                            <i class="fab fa-linkedin"></i>
+                            <div class="badge-content">
+                                <span class="badge-label">LinkedIn</span>
+                                <span class="badge-value" data-fr="Réseau Professionnel" data-en="Professional Network">Réseau Professionnel</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title" data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</h2>
+            
+            <div class="skills-grid">
+                <!-- Backend -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="tech-stack">
+                        <div class="tech-item" data-tooltip="Java SE 8/17/21" data-level="95">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                            <span>Java</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Spring Framework" data-level="95">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring">
+                            <span>Spring</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Spring Boot" data-level="95">
+                            <i class="fab fa-leaf" style="color: #6DB33F; font-size: 40px;"></i>
+                            <span>Spring Boot</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Apache Kafka" data-level="85">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" alt="Kafka">
+                            <span>Kafka</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Liferay DXP" data-level="85">
+                            <img src="liferay-logo.png" alt="Kafka">
+                            <span>Liferay</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Hibernate/JPA" data-level="90">
+                            <i class="fas fa-database" style="color: #59666C; font-size: 40px;"></i>
+                            <span>Hibernate</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Python" data-level="75">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                            <span>Python</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="tech-stack">
+                        <div class="tech-item" data-tooltip="Angular 2+/14" data-level="80">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular">
+                            <span>Angular</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="TypeScript" data-level="80">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
+                            <span>TypeScript</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="HTML5" data-level="90">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                            <span>HTML5</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="JavaScript" data-level="85">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                            <span>JavaScript</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="GraphQL" data-level="75">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" alt="GraphQL">
+                            <span>GraphQL</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> <span data-fr="Bases de Données" data-en="Databases">Bases de Données</span></h3>
+                    <div class="tech-stack">
+                        <div class="tech-item" data-tooltip="MySQL" data-level="85">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                            <span>MySQL</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="PostgreSQL" data-level="85">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+                            <span>PostgreSQL</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="MongoDB" data-level="80">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                            <span>MongoDB</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Couchbase" data-level="85">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/couchbase/couchbase-original.svg" alt="Couchbase">
+                            <span>Couchbase</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="GreenPlum" data-level="70">
+                            <i class="fas fa-database" style="color: #00B388; font-size: 40px;"></i>
+                            <span>GreenPlum</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> DevOps & Cloud</h3>
+                    <div class="tech-stack">
+                        <div class="tech-item" data-tooltip="GitLab CI" data-level="80">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab">
+                            <span>GitLab</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Jenkins" data-level="75">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins">
+                            <span>Jenkins</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Docker" data-level="85">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                            <span>Docker</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Kubernetes" data-level="75">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
+                            <span>Kubernetes</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Google Cloud Platform" data-level="70">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP">
+                            <span>GCP</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Azure Cloud" data-level="65">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
+                            <span>Azure</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="IBM Cloud" data-level="70">
+                            <img src="ibm-cloud.png" style="width: 60px;" alt="IBM">
+                            <span>IBM Cloud</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Progress Bars -->
+            <div class="skills-progress">
+                <h3 data-fr="Niveau d'Expertise" data-en="Expertise Level">Niveau d'Expertise</h3>
+                <div class="progress-grid">
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Java / Spring Boot</span>
+                            <span class="progress-percent">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Microservices Architecture</span>
+                            <span class="progress-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Apache Kafka</span>
+                            <span class="progress-percent">100%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Liferay DXP</span>
+                            <span class="progress-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Angular / TypeScript</span>
+                            <span class="progress-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>DevOps (Docker/K8s)</span>
+                            <span class="progress-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Cloud (GCP/IBM/Azure)</span>
+                            <span class="progress-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title" data-fr="Expérience Professionnelle" data-en="Professional Experience">Expérience Professionnelle</h2>
+            
+            <div class="timeline">
+                <!-- MGEN -->
+                <div class="timeline-item" data-company="mgen">
+                    <div class="timeline-date">
+                        <span class="date-text" data-fr="Janvier 2025 - Présent" data-en="January 2025 - Present">Janvier 2025 - Présent</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 data-fr="Ingénieur Développement Java - Kafka - Apache Camel" data-en="Java Development Engineer - Kafka - Apache Camel">Ingénieur Développement Java - Kafka - Apache Camel</h3>
+                        <h4 class="company">MGEN</h4>
+                        <p class="description" data-fr="Intégré à l'équipe Data, contribution au développement d'APIs REST en microservices, mise en place de traitements batch avec Apache Camel, et implémentation d'Apache Kafka pour le streaming et la messagerie de données." data-en="Integrated into the Data team, contributing to the development of REST APIs in microservices, setting up batch processing with Apache Camel, and implementing Apache Kafka for data streaming and messaging.">
+                            Intégré à l'équipe Data, contribution au développement d'APIs REST en microservices, 
+                            mise en place de traitements batch avec Apache Camel, et implémentation d'Apache Kafka 
+                            pour le streaming et la messagerie de données.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">Java 21</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">Apache Kafka</span>
+                            <span class="tag">Apache Camel</span>
+                            <span class="tag">Couchbase</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">GCP</span>
+                        </div>
+                        <button class="btn-more-info" data-fr="Plus de détails" data-en="More details">Plus de détails</button>
+                    </div>
+                </div>
+
+                <!-- BNP Paribas -->
+                <div class="timeline-item" data-company="bnp">
+                    <div class="timeline-date">
+                        <span class="date-text" data-fr="Oct 2021 - Déc 2024" data-en="Oct 2021 - Dec 2024">Oct 2021 - Déc 2024</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 data-fr="Ingénieur Développement Full Stack" data-en="Full Stack Development Engineer">Ingénieur Développement Full Stack</h3>
+                        <h4 class="company">BNP Paribas Cardif</h4>
+                        <p class="description" data-fr="Développement d'applications en marque blanche pour des assurances, servant d'outil d'aide à la vente pour divers contrats d'assurance prévoyance." data-en="Development of white-label applications for insurance companies, serving as sales support tools for various insurance contracts.">
+                            Développement d'applications en marque blanche pour des assurances, 
+                            servant d'outil d'aide à la vente pour divers contrats d'assurance prévoyance.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">Java 17</span>
+                            <span class="tag">Spring Cloud</span>
+                            <span class="tag">Angular 14</span>
+                            <span class="tag">Kafka</span>
+                            <span class="tag">GraphQL</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">IBM Cloud</span>
+                        </div>
+                        <button class="btn-more-info" data-fr="Plus de détails" data-en="More details">Plus de détails</button>
+                    </div>
+                </div>
+
+                <!-- Tessi -->
+                <div class="timeline-item" data-company="tessi">
+                    <div class="timeline-date">
+                        <span class="date-text" data-fr="Fév 2017 - Août 2021" data-en="Feb 2017 - Aug 2021">Fév 2017 - Août 2021</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 data-fr="Ingénieur Développement Full Stack" data-en="Full Stack Development Engineer">Ingénieur Développement Full Stack</h3>
+                        <h4 class="company">Tessi</h4>
+                        <p class="description" data-fr="Développement d'applications marque blanche pour assurances et mutuelles, migration Liferay 6.3 vers 7.3, et création d'outils de gestion et monitoring." data-en="Development of white-label applications for insurance and mutual companies, Liferay 6.3 to 7.3 migration, and creation of management and monitoring tools.">
+                            Développement d'applications marque blanche pour assurances et mutuelles, 
+                            migration Liferay 6.3 vers 7.3, et création d'outils de gestion et monitoring.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">Java 8</span>
+                            <span class="tag">Liferay DXP</span>
+                            <span class="tag">Angular 8</span>
+                            <span class="tag">Spring Batch</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">OAuth2</span>
+                            <span class="tag">SOAP/REST</span>
+                        </div>
+                        <button class="btn-more-info" data-fr="Plus de détails" data-en="More details">Plus de détails</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Modal -->
+    <div id="experienceModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <img id="modalCompanyLogo" src="" alt="Company Logo">
+                <div>
+                    <h2 id="modalCompanyName"></h2>
+                    <p id="modalPosition"></p>
+                    <p id="modalDuration"></p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3 data-fr="Missions principales" data-en="Main Missions">Missions principales</h3>
+                <ul id="modalMissions"></ul>
+                
+                <h3 data-fr="Réalisations clés" data-en="Key Achievements">Réalisations clés</h3>
+                <ul id="modalAchievements"></ul>
+                
+                <h3 data-fr="Technologies utilisées" data-en="Technologies Used">Technologies utilisées</h3>
+                <div id="modalTechnologies" class="modal-tech-tags"></div>
+                
+                <h3 data-fr="Contexte du projet" data-en="Project Context">Contexte du projet</h3>
+                <p id="modalContext"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title" data-fr="Certifications & Formations" data-en="Certifications & Training">Certifications & Formations</h2>
+            
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon kafka-cert">
+                         <img src="kafka-logo.png" alt="Liferay" style="width: 80px;height: 80px; border-radius: inherit;">
+                    </div>
+                    <h3>Confluent Certified Developer</h3>
+                    <p class="cert-subtitle">Apache Kafka (CCDAK)</p>
+                    <p class="cert-date">
+                        <i class="fas fa-calendar-check"></i> <span data-fr="12 Août 2025" data-en="August 12, 2025">12 Août 2025</span>
+                    </p>
+                    <div class="cert-badge" data-fr="Certifié" data-en="Certified">Certifié</div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon liferay-cert">
+                         <img src="liferay-logo.png" alt="Liferay" style="width: 40px; height: 40px;">
+                    </div>
+                    <h3>Liferay DXP 7.2</h3>
+                    <p class="cert-subtitle">Certified Professional Back-End Developer</p>
+                    <p class="cert-date">
+                        <i class="fas fa-calendar-check"></i> <span data-fr="30 Juin 2021" data-en="June 30, 2021">30 Juin 2021</span>
+                    </p>
+                    <div class="cert-badge" data-fr="Certifié" data-en="Certified">Certifié</div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon ai-cert">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 data-fr="Intelligence Artificielle" data-en="Artificial Intelligence">Intelligence Artificielle</h3>
+                    <p class="cert-subtitle">Programmation avec IBM Watson</p>
+                    <p class="cert-date">
+                        <i class="fas fa-graduation-cap"></i> <span data-fr="Formation complétée" data-en="Training Completed">Formation complétée</span>
+                    </p>
+                    <div class="cert-badge" data-fr="Formation" data-en="Training">Formation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            
+            <div class="contact-content-centered">
+                <h3 data-fr="Travaillons Ensemble" data-en="Let's Work Together">Travaillons Ensemble</h3>
+                <p class="contact-description" data-fr="Je suis actuellement disponible pour des opportunités en développement Full-Stack, architecture microservices et projets innovants." data-en="I am currently available for Full-Stack development opportunities, microservices architecture and innovative projects.">Je suis actuellement disponible pour des opportunités en développement Full-Stack, 
+                   architecture microservices et projets innovants.</p>
+                
+                <div class="contact-items-horizontal">
+                    <div class="contact-item-card">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <h4 data-fr="Nom" data-en="Name">Nom</h4>
+                            <span>Charfeddine BENMOHAMED</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item-card">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:charfeddinebenmohamed24@gmail.com">
+                                charfeddinebenmohamed24@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item-card">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-fr="Téléphone" data-en="Phone">Téléphone</h4>
+                            <a href="tel:+33616089279">+33 6 16 08 92 79</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links-center">
+                    <a href="https://www.linkedin.com/in/charfeddine-benmohamed/" title="Linkedin" class="social-link" aria-label="LinkedIn" 
+                    target="_blank" rel="noopener noreferrer"> <i class="fab fa-linkedin"></i> </a> 
+                    
+                    <a href="https://github.com/charfeddine12" class="social-link"title="Github" aria-label="GitHub" 
+                    target="_blank" rel="noopener noreferrer"> <i class="fab fa-github"></i>
+                    </a> 
+                    
+                    <a href="https://stackoverflow.com/users/7231760/benmohamed-charfeddine" title="Stack overflow" class="social-link" 
+                    aria-label="Stack Overflow" target="_blank" rel="noopener noreferrer"> <i class="fab fa-stack-overflow"></i> 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Charfeddine BENMOHAMED. <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
