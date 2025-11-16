@@ -1,8 +1,106 @@
 // =====================================================
-// JAVASCRIPT FOR PORTFOLIO WEBSITE
+// JAVASCRIPT FOR PORTFOLIO WEBSITE WITH MICROSERVICES BACKGROUND
 // =====================================================
 
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // =====================================================
+    // MICROSERVICES ANIMATED BACKGROUND
+    // =====================================================
+    
+    const archContainer = document.getElementById('archContainer');
+    const connectionsSvg = document.getElementById('connectionsSvg');
+    const sparksContainer = document.getElementById('sparksContainer');
+    
+    // Architecture nodes configuration
+    const nodes = [
+        { id: 'api-gateway', label: 'API Gateway', x: 15, y: 15 },
+        { id: 'auth-service', label: 'Auth Service', x: 45, y: 10 },
+        { id: 'user-service', label: 'User Service', x: 75, y: 15 },
+        { id: 'billing-service', label: 'Billing Service', x: 20, y: 45 },
+        { id: 'notification', label: 'Notification', x: 50, y: 50 },
+        { id: 'kafka', label: 'Kafka', x: 80, y: 45 },
+        { id: 'postgres', label: 'PostgreSQL', x: 25, y: 75 },
+        { id: 'mongodb', label: 'MongoDB', x: 55, y: 80 },
+        { id: 'redis', label: 'Redis Cache', x: 85, y: 75 }
+    ];
+    
+    // Connections between nodes
+    const connections = [
+        ['api-gateway', 'auth-service'],
+        ['api-gateway', 'user-service'],
+        ['api-gateway', 'billing-service'],
+        ['auth-service', 'user-service'],
+        ['user-service', 'kafka'],
+        ['billing-service', 'kafka'],
+        ['notification', 'kafka'],
+        ['user-service', 'postgres'],
+        ['billing-service', 'mongodb'],
+        ['auth-service', 'redis']
+    ];
+    
+    // Create nodes
+    if (archContainer) {
+        nodes.forEach(node => {
+            const nodeEl = document.createElement('div');
+            nodeEl.className = 'arch-node';
+            nodeEl.id = node.id;
+            nodeEl.textContent = node.label;
+            nodeEl.style.left = node.x + '%';
+            nodeEl.style.top = node.y + '%';
+            nodeEl.style.animationDelay = Math.random() * 2 + 's';
+            archContainer.appendChild(nodeEl);
+        });
+    }
+    
+    // Create connections
+    if (connectionsSvg && archContainer) {
+        function updateConnections() {
+            connectionsSvg.innerHTML = '<defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';
+            
+            connections.forEach(([from, to]) => {
+                const fromEl = document.getElementById(from);
+                const toEl = document.getElementById(to);
+                
+                if (fromEl && toEl) {
+                    const fromRect = fromEl.getBoundingClientRect();
+                    const toRect = toEl.getBoundingClientRect();
+                    const svgRect = connectionsSvg.getBoundingClientRect();
+                    
+                    const x1 = fromRect.left + fromRect.width / 2 - svgRect.left;
+                    const y1 = fromRect.top + fromRect.height / 2 - svgRect.top;
+                    const x2 = toRect.left + toRect.width / 2 - svgRect.left;
+                    const y2 = toRect.top + toRect.height / 2 - svgRect.top;
+                    
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', x1);
+                    line.setAttribute('y1', y1);
+                    line.setAttribute('x2', x2);
+                    line.setAttribute('y2', y2);
+                    line.setAttribute('class', 'connection-line');
+                    connectionsSvg.appendChild(line);
+                }
+            });
+        }
+        
+        updateConnections();
+        window.addEventListener('resize', updateConnections);
+        setInterval(updateConnections, 100);
+    }
+    
+    // Create sparks
+    if (sparksContainer) {
+        for (let i = 0; i < 50; i++) {
+            const spark = document.createElement('div');
+            spark.className = 'spark';
+            spark.style.left = Math.random() * 100 + '%';
+            spark.style.top = Math.random() * 100 + '%';
+            spark.style.setProperty('--tx', (Math.random() - 0.5) * 200 + 'px');
+            spark.style.setProperty('--ty', (Math.random() - 0.5) * 200 + 'px');
+            spark.style.animationDelay = Math.random() * 15 + 's';
+            sparksContainer.appendChild(spark);
+        }
+    }
     
     // =====================================================
     // LANGUAGE SWITCHER - FIXED
@@ -28,6 +126,17 @@ document.addEventListener('DOMContentLoaded', function() {
             'Kafka Specialist'
         ]
     };
+    
+    // Declare typed text variables early
+    const typedTextSpan = document.querySelector('.typed-text');
+    let textArray = translations[currentLang];
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 2000;
+    let textArrayIndex = 0;
+    let charIndex = 0;
+    let typeTimer;
+    let eraseTimer;
     
     // Function to switch language
     function switchLanguage(lang) {
@@ -77,9 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Apply saved language on load
-    if (currentLang !== 'fr') {
-        switchLanguage(currentLang);
-    }
+    switchLanguage(currentLang);
     
     // =====================================================
     // NAVIGATION FUNCTIONALITY
@@ -89,21 +196,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
-    hamburger.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        
-        // Animate hamburger
-        const spans = hamburger.querySelectorAll('span');
-        spans[0].style.transform = navMenu.classList.contains('active') 
-            ? 'rotate(45deg) translateY(8px)' 
-            : 'none';
-        spans[1].style.opacity = navMenu.classList.contains('active') 
-            ? '0' 
-            : '1';
-        spans[2].style.transform = navMenu.classList.contains('active') 
-            ? 'rotate(-45deg) translateY(-8px)' 
-            : 'none';
-    });
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            
+            // Animate hamburger
+            const spans = hamburger.querySelectorAll('span');
+            spans[0].style.transform = navMenu.classList.contains('active') 
+                ? 'rotate(45deg) translateY(8px)' 
+                : 'none';
+            spans[1].style.opacity = navMenu.classList.contains('active') 
+                ? '0' 
+                : '1';
+            spans[2].style.transform = navMenu.classList.contains('active') 
+                ? 'rotate(-45deg) translateY(-8px)' 
+                : 'none';
+        });
+    }
     
     // Close mobile menu when link is clicked
     document.querySelectorAll('.nav-link').forEach(link => {
@@ -157,16 +266,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // TYPED TEXT EFFECT - FIXED
     // =====================================================
     
-    const typedTextSpan = document.querySelector('.typed-text');
-    let textArray = translations[currentLang];
-    const typingDelay = 100;
-    const erasingDelay = 50;
-    const newTextDelay = 2000;
-    let textArrayIndex = 0;
-    let charIndex = 0;
-    let typeTimer;
-    let eraseTimer;
-    
     function type() {
         if (charIndex < textArray[textArrayIndex].length) {
             if (!typedTextSpan.classList.contains('typing')) {
@@ -199,6 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start typing effect
     if (typedTextSpan) {
+        textArray = translations[currentLang];
         setTimeout(type, 1000);
     }
     
@@ -442,298 +542,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Close modal
-    modalClose.addEventListener('click', () => {
-        modal.classList.remove('show');
-        setTimeout(() => modal.style.display = 'none', 300);
-    });
-    
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('show');
-            setTimeout(() => modal.style.display = 'none', 300);
-        }
-    });
-    
-    // =====================================================
-    // CANVAS ANIMATIONS FOR TECH ARCHITECTURE
-    // =====================================================
-    
-    // Microservices Animation
-    const microservicesCanvas = document.getElementById('microservicesCanvas');
-    if (microservicesCanvas) {
-        const ctx = microservicesCanvas.getContext('2d');
-        const services = [];
-        const numServices = 6;
-        
-        for (let i = 0; i < numServices; i++) {
-            services.push({
-                x: Math.random() * microservicesCanvas.width,
-                y: Math.random() * microservicesCanvas.height,
-                radius: 20,
-                vx: (Math.random() - 0.5) * 1,
-                vy: (Math.random() - 0.5) * 1,
-                color: `hsl(${i * 60}, 70%, 60%)`
-            });
-        }
-        
-        function animateMicroservices() {
-            ctx.clearRect(0, 0, microservicesCanvas.width, microservicesCanvas.height);
-            
-            // Draw connections
-            ctx.strokeStyle = 'rgba(96, 165, 250, 0.3)';
-            ctx.lineWidth = 1;
-            for (let i = 0; i < services.length; i++) {
-                for (let j = i + 1; j < services.length; j++) {
-                    const dx = services[i].x - services[j].x;
-                    const dy = services[i].y - services[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < 150) {
-                        ctx.beginPath();
-                        ctx.moveTo(services[i].x, services[i].y);
-                        ctx.lineTo(services[j].x, services[j].y);
-                        ctx.stroke();
-                    }
-                }
+    if (modalClose) {
+        modalClose.addEventListener('click', () => {
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => modal.style.display = 'none', 300);
             }
-            
-            // Draw and update services
-            services.forEach(service => {
-                ctx.beginPath();
-                ctx.arc(service.x, service.y, service.radius, 0, Math.PI * 2);
-                ctx.fillStyle = service.color;
-                ctx.fill();
-                ctx.strokeStyle = '#fff';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                
-                service.x += service.vx;
-                service.y += service.vy;
-                
-                if (service.x < service.radius || service.x > microservicesCanvas.width - service.radius) {
-                    service.vx *= -1;
-                }
-                if (service.y < service.radius || service.y > microservicesCanvas.height - service.radius) {
-                    service.vy *= -1;
-                }
-            });
-            
-            requestAnimationFrame(animateMicroservices);
-        }
-        
-        animateMicroservices();
+        });
     }
     
-    // Kafka Streaming Animation
-    const kafkaCanvas = document.getElementById('kafkaCanvas');
-    if (kafkaCanvas) {
-        const ctx = kafkaCanvas.getContext('2d');
-        const messages = [];
-        
-        function createMessage() {
-            messages.push({
-                x: 50,
-                y: Math.random() * (kafkaCanvas.height - 40) + 20,
-                speed: 2 + Math.random() * 2,
-                color: `hsl(${Math.random() * 360}, 70%, 60%)`,
-                size: 8
-            });
-        }
-        
-        setInterval(createMessage, 500);
-        
-        function animateKafka() {
-            ctx.clearRect(0, 0, kafkaCanvas.width, kafkaCanvas.height);
-            
-            // Draw producer
-            ctx.fillStyle = '#10b981';
-            ctx.fillRect(10, kafkaCanvas.height / 2 - 30, 40, 60);
-            ctx.fillStyle = '#fff';
-            ctx.font = '12px Arial';
-            ctx.fillText('P', 25, kafkaCanvas.height / 2 + 5);
-            
-            // Draw broker
-            ctx.fillStyle = '#2563eb';
-            ctx.fillRect(kafkaCanvas.width / 2 - 30, kafkaCanvas.height / 2 - 40, 60, 80);
-            ctx.fillStyle = '#fff';
-            ctx.fillText('Kafka', kafkaCanvas.width / 2 - 18, kafkaCanvas.height / 2 + 5);
-            
-            // Draw consumer
-            ctx.fillStyle = '#f59e0b';
-            ctx.fillRect(kafkaCanvas.width - 50, kafkaCanvas.height / 2 - 30, 40, 60);
-            ctx.fillStyle = '#fff';
-            ctx.fillText('C', kafkaCanvas.width - 35, kafkaCanvas.height / 2 + 5);
-            
-            // Draw and update messages
-            for (let i = messages.length - 1; i >= 0; i--) {
-                const msg = messages[i];
-                
-                ctx.beginPath();
-                ctx.arc(msg.x, msg.y, msg.size, 0, Math.PI * 2);
-                ctx.fillStyle = msg.color;
-                ctx.fill();
-                
-                msg.x += msg.speed;
-                
-                if (msg.x > kafkaCanvas.width + msg.size) {
-                    messages.splice(i, 1);
-                }
+    if (modal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                setTimeout(() => modal.style.display = 'none', 300);
             }
-            
-            requestAnimationFrame(animateKafka);
-        }
-        
-        animateKafka();
-    }
-    
-    // Cloud Infrastructure Animation
-    const cloudCanvas = document.getElementById('cloudCanvas');
-    if (cloudCanvas) {
-        const ctx = cloudCanvas.getContext('2d');
-        const clouds = [];
-        
-        for (let i = 0; i < 3; i++) {
-            clouds.push({
-                x: Math.random() * cloudCanvas.width,
-                y: 50 + i * 80,
-                speed: 0.5 + Math.random() * 0.5,
-                scale: 0.8 + Math.random() * 0.4
-            });
-        }
-        
-        function drawCloud(x, y, scale) {
-            ctx.fillStyle = 'rgba(96, 165, 250, 0.6)';
-            ctx.beginPath();
-            ctx.arc(x, y, 25 * scale, 0, Math.PI * 2);
-            ctx.arc(x + 25 * scale, y - 10 * scale, 20 * scale, 0, Math.PI * 2);
-            ctx.arc(x + 50 * scale, y, 25 * scale, 0, Math.PI * 2);
-            ctx.arc(x + 25 * scale, y + 10 * scale, 20 * scale, 0, Math.PI * 2);
-            ctx.fill();
-        }
-        
-        function animateCloud() {
-            ctx.clearRect(0, 0, cloudCanvas.width, cloudCanvas.height);
-            
-            clouds.forEach(cloud => {
-                drawCloud(cloud.x, cloud.y, cloud.scale);
-                cloud.x += cloud.speed;
-                
-                if (cloud.x > cloudCanvas.width + 60) {
-                    cloud.x = -60;
-                }
-            });
-            
-            // Draw servers
-            for (let i = 0; i < 4; i++) {
-                ctx.fillStyle = '#1e293b';
-                ctx.fillRect(50 + i * 80, cloudCanvas.height - 60, 60, 50);
-                ctx.strokeStyle = '#2563eb';
-                ctx.lineWidth = 2;
-                ctx.strokeRect(50 + i * 80, cloudCanvas.height - 60, 60, 50);
-                
-                // Server lights
-                for (let j = 0; j < 3; j++) {
-                    ctx.fillStyle = j % 2 === 0 ? '#10b981' : '#f59e0b';
-                    ctx.fillRect(60 + i * 80, cloudCanvas.height - 50 + j * 15, 10, 8);
-                }
-            }
-            
-            requestAnimationFrame(animateCloud);
-        }
-        
-        animateCloud();
-    }
-    
-    // Data Pipeline Animation
-    const dataPipelineCanvas = document.getElementById('dataPipelineCanvas');
-    if (dataPipelineCanvas) {
-        const ctx = dataPipelineCanvas.getContext('2d');
-        const dataPoints = [];
-        let time = 0;
-        
-        function createDataPoint() {
-            dataPoints.push({
-                x: 50,
-                stage: 0,
-                color: `hsl(${Math.random() * 360}, 70%, 60%)`,
-                size: 6
-            });
-        }
-        
-        setInterval(createDataPoint, 800);
-        
-        const stages = [
-            { x: 50, y: dataPipelineCanvas.height / 2, label: 'Extract' },
-            { x: 150, y: dataPipelineCanvas.height / 2, label: 'Transform' },
-            { x: 250, y: dataPipelineCanvas.height / 2, label: 'Load' },
-            { x: 350, y: dataPipelineCanvas.height / 2, label: 'Analyze' }
-        ];
-        
-        function animateDataPipeline() {
-            ctx.clearRect(0, 0, dataPipelineCanvas.width, dataPipelineCanvas.height);
-            
-            // Draw pipeline stages
-            stages.forEach((stage, index) => {
-                ctx.fillStyle = '#1e293b';
-                ctx.fillRect(stage.x - 30, stage.y - 25, 60, 50);
-                ctx.strokeStyle = '#2563eb';
-                ctx.lineWidth = 2;
-                ctx.strokeRect(stage.x - 30, stage.y - 25, 60, 50);
-                
-                ctx.fillStyle = '#fff';
-                ctx.font = '11px Arial';
-                ctx.textAlign = 'center';
-                ctx.fillText(stage.label, stage.x, stage.y + 3);
-                
-                // Draw arrows
-                if (index < stages.length - 1) {
-                    ctx.strokeStyle = '#60a5fa';
-                    ctx.lineWidth = 2;
-                    ctx.beginPath();
-                    ctx.moveTo(stage.x + 30, stage.y);
-                    ctx.lineTo(stages[index + 1].x - 30, stages[index + 1].y);
-                    ctx.stroke();
-                    
-                    // Arrow head
-                    ctx.beginPath();
-                    ctx.moveTo(stages[index + 1].x - 30, stages[index + 1].y);
-                    ctx.lineTo(stages[index + 1].x - 40, stages[index + 1].y - 5);
-                    ctx.lineTo(stages[index + 1].x - 40, stages[index + 1].y + 5);
-                    ctx.closePath();
-                    ctx.fillStyle = '#60a5fa';
-                    ctx.fill();
-                }
-            });
-            
-            // Draw and update data points
-            for (let i = dataPoints.length - 1; i >= 0; i--) {
-                const point = dataPoints[i];
-                
-                if (point.stage < stages.length) {
-                    const currentStage = stages[point.stage];
-                    const targetX = currentStage.x;
-                    
-                    ctx.beginPath();
-                    ctx.arc(point.x, currentStage.y, point.size, 0, Math.PI * 2);
-                    ctx.fillStyle = point.color;
-                    ctx.fill();
-                    
-                    point.x += 2;
-                    
-                    if (point.x >= targetX) {
-                        point.stage++;
-                        point.x = targetX;
-                    }
-                } else {
-                    dataPoints.splice(i, 1);
-                }
-            }
-            
-            time++;
-            requestAnimationFrame(animateDataPipeline);
-        }
-        
-        animateDataPipeline();
+        });
     }
     
     // =====================================================
@@ -772,7 +596,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe elements
-    document.querySelectorAll('.info-card, .skill-category, .timeline-item, .cert-card, .progress-item, .architecture-card').forEach(el => {
+    document.querySelectorAll('.info-card, .skill-category, .timeline-item, .cert-card, .progress-item').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.6s ease-out';
@@ -785,20 +609,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const backToTopButton = document.getElementById('backToTop');
     
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
-    
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
         });
-    });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
     
     // =====================================================
     // ACTIVE SECTION HIGHLIGHTING
@@ -828,116 +654,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // =====================================================
-    // PARALLAX EFFECT FOR HERO SECTION
-    // =====================================================
-    
-    const shapes = document.querySelectorAll('.shape');
-    
-    window.addEventListener('mousemove', (e) => {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        
-        shapes.forEach((shape, index) => {
-            const speed = (index + 1) * 20;
-            const x = (mouseX - 0.5) * speed;
-            const y = (mouseY - 0.5) * speed;
-            
-            shape.style.transform = `translate(${x}px, ${y}px)`;
-        });
-    });
-    
-    // =====================================================
     // LOADING ANIMATION
     // =====================================================
     
     window.addEventListener('load', () => {
         document.body.style.opacity = '1';
     });
-    
-    // =====================================================
-    // NOTIFICATION SYSTEM
-    // =====================================================
-    
-    function showNotification(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
-            <span>${message}</span>
-        `;
-        
-        Object.assign(notification.style, {
-            position: 'fixed',
-            top: '100px',
-            right: '20px',
-            padding: '15px 20px',
-            background: type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : '#3b82f6',
-            color: 'white',
-            borderRadius: '10px',
-            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            zIndex: '9999',
-            animation: 'slideInRight 0.3s ease-out'
-        });
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.animation = 'slideOutRight 0.3s ease-out';
-            setTimeout(() => {
-                notification.remove();
-            }, 300);
-        }, 3000);
-    }
-    
-    // =====================================================
-    // ADD CSS FOR ANIMATIONS
-    // =====================================================
-    
-    const style = document.createElement('style');
-    style.innerHTML = `
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-        
-        .nav-link.active {
-            color: var(--primary-light);
-        }
-        
-        .nav-link.active::after {
-            width: 100%;
-        }
-        
-        body {
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .timeline-item.animate-in {
-            animation: fadeInUp 0.8s ease-out;
-        }
-    `;
-    document.head.appendChild(style);
     
 });
 

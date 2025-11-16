@@ -34,17 +34,29 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Animated Microservices Background -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-            </div>
+        <div class="microservices-background">
+            <div class="gradient-layer gradient-layer-1"></div>
+            <div class="gradient-layer gradient-layer-2"></div>
+            <div class="gradient-layer gradient-layer-3"></div>
+            <div class="sparks-container" id="sparksContainer"></div>
+            <div class="architecture-container" id="archContainer"></div>
+            <svg class="connections-svg" id="connectionsSvg">
+                <defs>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+            </svg>
         </div>
+        
         <div class="hero-content">
-            <div class="hero-text">
+            <div class="hero-text profile-card">
                 <h3 class="hero-subtitle" data-fr="Bonjour, je suis" data-en="Hello, I'm">Bonjour, je suis</h3>
                 <h1 class="hero-title">Charfeddine BENMOHAMED</h1>
                 <h2 class="hero-role">
@@ -52,8 +64,7 @@
                     <span class="cursor">|</span>
                 </h2>
                 <p class="hero-description" data-fr="Expert Java certifié Kafka & Liferay DXP avec 8 ans d'expérience dans le développement d'applications d'entreprise" data-en="Java Expert certified in Kafka & Liferay DXP with 8 years of experience in enterprise application development">
-                    Expert Java certifié Kafka & Liferay DXP avec 8 ans d'expérience
-                    dans le développement d'applications d'entreprise
+                    Expert Java certifié Kafka & Liferay DXP avec 8 ans d'expérience dans le développement d'applications d'entreprise
                 </p>
                 <div class="hero-badges">
                     <span class="badge" data-fr="Expert Java" data-en="Java Expert">Expert Java</span>
@@ -65,7 +76,7 @@
                     <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> <span data-fr="Me Contacter" data-en="Contact Me">Me Contacter</span>
                     </a>
-                    <a href="CV_Charfeddine_BENMOHAMED.pdf" class="btn btn-secondary" id="downloadCV" download>
+                    <a href="CV_Charfeddine_BENMOHAMED.pdf" class="btn btn-secondary" download>
                         <i class="fas fa-download"></i> <span data-fr="Télécharger CV" data-en="Download CV">Télécharger CV</span>
                     </a>
                 </div>
@@ -109,7 +120,6 @@
                     </div>
                 </div>
                 
-                <!-- Professional Profiles Section -->
                 <div class="professional-profiles">
                     <h3 class="profiles-title" data-fr="Profils Professionnels" data-en="Professional Profiles">Profils Professionnels</h3>
                     <div class="profile-badges">
@@ -153,58 +163,42 @@
                         <div class="tech-item" data-tooltip="Java SE 8/17/21" data-level="95">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
                             <span>Java</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Spring Framework" data-level="95">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring">
                             <span>Spring</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Spring Boot" data-level="95">
                             <i class="fab fa-leaf" style="color: #6DB33F; font-size: 40px;"></i>
                             <span>Spring Boot</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Apache Kafka" data-level="100">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" alt="Kafka">
                             <span>Kafka</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Apache Camel" data-level="80">
-                            <img src="apache-camel-logo.png" alt="apache-camel">
+                            <i class="fas fa-exchange-alt" style="color: #F69923; font-size: 40px;"></i>
                             <span>Apache Camel</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Liferay DXP" data-level="85">
                             <img src="liferay-logo.png" alt="Liferay">
                             <span>Liferay</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Hibernate/JPA" data-level="90">
                             <i class="fas fa-database" style="color: #59666C; font-size: 40px;"></i>
                             <span>Hibernate</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
-                        <div class="tech-item" data-tooltip="Python" data-level="40">
+                        <div class="tech-item" data-tooltip="Python (Basique)" data-level="40">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
                             <span>Python</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                     </div>
                 </div>
@@ -216,37 +210,27 @@
                         <div class="tech-item" data-tooltip="Angular 2+/14" data-level="80">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular">
                             <span>Angular</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="TypeScript" data-level="80">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
                             <span>TypeScript</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="HTML5" data-level="90">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
                             <span>HTML5</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="JavaScript" data-level="85">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
                             <span>JavaScript</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="GraphQL" data-level="75">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" alt="GraphQL">
                             <span>GraphQL</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                     </div>
                 </div>
@@ -258,100 +242,84 @@
                         <div class="tech-item" data-tooltip="MySQL" data-level="85">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
                             <span>MySQL</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="PostgreSQL" data-level="85">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
                             <span>PostgreSQL</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="MongoDB" data-level="80">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
                             <span>MongoDB</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Couchbase" data-level="85">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/couchbase/couchbase-original.svg" alt="Couchbase">
                             <span>Couchbase</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="GreenPlum" data-level="70">
                             <i class="fas fa-database" style="color: #00B388; font-size: 40px;"></i>
                             <span>GreenPlum</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Elasticsearch" data-level="75">
+                            <i class="fas fa-search" style="color: #FEC514; font-size: 40px;"></i>
+                            <span>Elasticsearch</span>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Redis" data-level="70">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis">
+                            <span>Redis</span>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- DevOps -->
+                <!-- DevOps & Cloud -->
                 <div class="skill-category">
                     <h3><i class="fas fa-cogs"></i> DevOps & Cloud</h3>
                     <div class="tech-stack">
-                        <div class="tech-item" data-tooltip="GitLab CI" data-level="80">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab">
-                            <span>GitLab</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="tech-item" data-tooltip="Jenkins" data-level="75">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins">
-                            <span>Jenkins</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
-                        </div>
                         <div class="tech-item" data-tooltip="Docker" data-level="85">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
                             <span>Docker</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Kubernetes" data-level="75">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
                             <span>Kubernetes</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
+                        </div>
+                        <div class="tech-item" data-tooltip="GitLab CI" data-level="80">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab">
+                            <span>GitLab</span>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
+                        </div>
+                        <div class="tech-item" data-tooltip="Jenkins" data-level="75">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins">
+                            <span>Jenkins</span>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Google Cloud Platform" data-level="70">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP">
                             <span>GCP</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="Azure Cloud" data-level="65">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
                             <span>Azure</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                         <div class="tech-item" data-tooltip="IBM Cloud" data-level="70">
-                            <img src="ibm-cloud.png" style="width: 60px;" alt="IBM">
+                            <i class="fas fa-cloud" style="color: #1261FE; font-size: 40px;"></i>
                             <span>IBM Cloud</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
-                        <div class="tech-item" data-tooltip="CloudBees" data-level="70">
-                            <img src="cloudbees-logo.png" style="width: 60px;" alt="IBM">
-                            <span>CloudBees</span>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%"></div>
-                            </div>
+                        <div class="tech-item" data-tooltip="OpenAPI" data-level="75">
+                            <i class="fas fa-file-code" style="color: #85EA2D; font-size: 40px;"></i>
+                            <span>OpenAPI</span>
+                            <div class="skill-progress-bar"><div class="skill-progress-fill"></div></div>
                         </div>
                     </div>
                 </div>
@@ -422,6 +390,15 @@
                         </div>
                         <div class="progress-bar">
                             <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Elasticsearch & Redis</span>
+                            <span class="progress-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
                         </div>
                     </div>
                 </div>
@@ -550,10 +527,10 @@
             <h2 class="section-title" data-fr="Certifications & Formations" data-en="Certifications & Training">Certifications & Formations</h2>
             
             <div class="cert-grid">
-                <!-- 1. Confluent Kafka -->
+                <!-- Confluent Kafka -->
                 <div class="cert-card">
                     <div class="cert-icon kafka-cert">
-                        <img src="kafka-logo.png" alt="Confluent Kafka" style="width: 80px; height: 80px; border-radius: inherit;">
+                        <img src="kafka-logo.png" alt="Kafka" style="width: 70px; height: 70px; border-radius: 50%;">
                     </div>
                     <h3 data-fr="Développeur Certifié Confluent" data-en="Confluent Certified Developer">
                         Développeur Certifié Confluent
@@ -566,10 +543,10 @@
                     <div class="cert-badge" data-fr="Certifié" data-en="Certified">Certifié</div>
                 </div>
             
-                <!-- 2. Liferay -->
+                <!-- Liferay -->
                 <div class="cert-card">
                     <div class="cert-icon liferay-cert">
-                        <img src="liferay-logo.png" alt="Liferay" style="width: 40px; height: 40px;">
+                        <img src="liferay-logo.png" alt="Liferay" style="width: 70px; height: 70px; border-radius: 50%;">
                     </div>
                     <h3 data-fr="Liferay DXP 7.2" data-en="Liferay DXP 7.2">Liferay DXP 7.2</h3>
                     <p class="cert-subtitle" data-fr="Développeur Back-End Certifié"
@@ -583,7 +560,7 @@
                     <div class="cert-badge" data-fr="Certifié" data-en="Certified">Certifié</div>
                 </div>
             
-                <!-- 3. IA avec IBM Watson -->
+                <!-- IBM Watson AI -->
                 <div class="cert-card">
                     <div class="cert-icon ai-cert">
                         <i class="fas fa-robot"></i>
@@ -599,7 +576,6 @@
                     <div class="cert-badge" data-fr="Formation" data-en="Training">Formation</div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -610,8 +586,10 @@
             
             <div class="contact-content-centered">
                 <h3 data-fr="Travaillons Ensemble" data-en="Let's Work Together">Travaillons Ensemble</h3>
-                <p class="contact-description" data-fr="Je suis actuellement disponible pour des opportunités en développement Full-Stack, architecture microservices et projets innovants." data-en="I am currently available for Full-Stack development opportunities, microservices architecture and innovative projects.">Je suis actuellement disponible pour des opportunités en développement Full-Stack, 
-                   architecture microservices et projets innovants.</p>
+                <p class="contact-description" data-fr="Je suis actuellement disponible pour des opportunités en développement Full-Stack, architecture microservices et projets innovants." data-en="I am currently available for Full-Stack development opportunities, microservices architecture and innovative projects.">
+                    Je suis actuellement disponible pour des opportunités en développement Full-Stack, 
+                    architecture microservices et projets innovants.
+                </p>
                 
                 <div class="contact-items-horizontal">
                     <div class="contact-item-card">
@@ -642,15 +620,14 @@
                 </div>
 
                 <div class="social-links-center">
-                    <a href="https://www.linkedin.com/in/charfeddine-benmohamed/" title="Linkedin" class="social-link" aria-label="LinkedIn" 
-                    target="_blank" rel="noopener noreferrer"> <i class="fab fa-linkedin"></i> </a> 
-                    
-                    <a href="https://github.com/charfeddine12" class="social-link"title="Github" aria-label="GitHub" 
-                    target="_blank" rel="noopener noreferrer"> <i class="fab fa-github"></i>
-                    </a> 
-                    
-                    <a href="https://stackoverflow.com/users/7231760/benmohamed-charfeddine" title="Stack overflow" class="social-link" 
-                    aria-label="Stack Overflow" target="_blank" rel="noopener noreferrer"> <i class="fab fa-stack-overflow"></i> 
+                    <a href="https://www.linkedin.com/in/charfeddine-benmohamed/" title="Linkedin" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/charfeddine12" class="social-link" title="Github" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://stackoverflow.com/users/7231760/benmohamed-charfeddine" title="Stack overflow" class="social-link" aria-label="Stack Overflow" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-stack-overflow"></i>
                     </a>
                 </div>
             </div>
