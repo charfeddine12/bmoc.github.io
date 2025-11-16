@@ -171,15 +171,22 @@
                                 <div class="skill-progress-fill" style="width: 0%"></div>
                             </div>
                         </div>
-                        <div class="tech-item" data-tooltip="Apache Kafka" data-level="85">
+                        <div class="tech-item" data-tooltip="Apache Kafka" data-level="100">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" alt="Kafka">
                             <span>Kafka</span>
                             <div class="skill-progress-bar">
                                 <div class="skill-progress-fill" style="width: 0%"></div>
                             </div>
                         </div>
+                        <div class="tech-item" data-tooltip="Apache Camel" data-level="80">
+                            <img src="apache-camel-logo.png" alt="apache-camel">
+                            <span>Apache Camel</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
                         <div class="tech-item" data-tooltip="Liferay DXP" data-level="85">
-                            <img src="liferay-logo.png" alt="Kafka">
+                            <img src="liferay-logo.png" alt="Liferay">
                             <span>Liferay</span>
                             <div class="skill-progress-bar">
                                 <div class="skill-progress-fill" style="width: 0%"></div>
@@ -192,7 +199,7 @@
                                 <div class="skill-progress-fill" style="width: 0%"></div>
                             </div>
                         </div>
-                        <div class="tech-item" data-tooltip="Python" data-level="75">
+                        <div class="tech-item" data-tooltip="Python" data-level="40">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
                             <span>Python</span>
                             <div class="skill-progress-bar">
@@ -335,6 +342,13 @@
                         <div class="tech-item" data-tooltip="IBM Cloud" data-level="70">
                             <img src="ibm-cloud.png" style="width: 60px;" alt="IBM">
                             <span>IBM Cloud</span>
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tooltip="CloudBees" data-level="70">
+                            <img src="cloudbees-logo.png" style="width: 60px;" alt="IBM">
+                            <span>CloudBees</span>
                             <div class="skill-progress-bar">
                                 <div class="skill-progress-fill" style="width: 0%"></div>
                             </div>
@@ -536,42 +550,56 @@
             <h2 class="section-title" data-fr="Certifications & Formations" data-en="Certifications & Training">Certifications & Formations</h2>
             
             <div class="cert-grid">
+                <!-- 1. Confluent Kafka -->
                 <div class="cert-card">
                     <div class="cert-icon kafka-cert">
-                         <img src="kafka-logo.png" alt="Liferay" style="width: 80px;height: 80px; border-radius: inherit;">
+                        <img src="kafka-logo.png" alt="Confluent Kafka" style="width: 80px; height: 80px; border-radius: inherit;">
                     </div>
-                    <h3>Confluent Certified Developer</h3>
-                    <p class="cert-subtitle">Apache Kafka (CCDAK)</p>
+                    <h3 data-fr="Développeur Certifié Confluent" data-en="Confluent Certified Developer">
+                        Développeur Certifié Confluent
+                    </h3>
+                    <p class="cert-subtitle" data-fr="Apache Kafka (CCDAK)" data-en="Apache Kafka (CCDAK)">Apache Kafka (CCDAK)</p>
                     <p class="cert-date">
-                        <i class="fas fa-calendar-check"></i> <span data-fr="12 Août 2025" data-en="August 12, 2025">12 Août 2025</span>
+                        <i class="fas fa-calendar-check"></i>
+                        <span data-fr="12 Août 2025" data-en="August 12, 2025">12 Août 2025</span>
                     </p>
                     <div class="cert-badge" data-fr="Certifié" data-en="Certified">Certifié</div>
                 </div>
-
+            
+                <!-- 2. Liferay -->
                 <div class="cert-card">
                     <div class="cert-icon liferay-cert">
-                         <img src="liferay-logo.png" alt="Liferay" style="width: 40px; height: 40px;">
+                        <img src="liferay-logo.png" alt="Liferay" style="width: 40px; height: 40px;">
                     </div>
-                    <h3>Liferay DXP 7.2</h3>
-                    <p class="cert-subtitle">Certified Professional Back-End Developer</p>
+                    <h3 data-fr="Liferay DXP 7.2" data-en="Liferay DXP 7.2">Liferay DXP 7.2</h3>
+                    <p class="cert-subtitle" data-fr="Développeur Back-End Certifié"
+                        data-en="Certified Professional Back-End Developer">
+                        Développeur Back-End Certifié
+                    </p>
                     <p class="cert-date">
-                        <i class="fas fa-calendar-check"></i> <span data-fr="30 Juin 2021" data-en="June 30, 2021">30 Juin 2021</span>
+                        <i class="fas fa-calendar-check"></i>
+                        <span data-fr="30 Juin 2021" data-en="June 30, 2021">30 Juin 2021</span>
                     </p>
                     <div class="cert-badge" data-fr="Certifié" data-en="Certified">Certifié</div>
                 </div>
-
+            
+                <!-- 3. IA avec IBM Watson -->
                 <div class="cert-card">
                     <div class="cert-icon ai-cert">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3 data-fr="Intelligence Artificielle" data-en="Artificial Intelligence">Intelligence Artificielle</h3>
-                    <p class="cert-subtitle">Programmation avec IBM Watson</p>
+                    <p class="cert-subtitle" data-fr="Programmation avec IBM Watson" data-en="Programming with IBM Watson">
+                        Programmation avec IBM Watson
+                    </p>
                     <p class="cert-date">
-                        <i class="fas fa-graduation-cap"></i> <span data-fr="Formation complétée" data-en="Training Completed">Formation complétée</span>
+                        <i class="fas fa-graduation-cap"></i>
+                        <span data-fr="Formation complétée" data-en="Training Completed">Formation complétée</span>
                     </p>
                     <div class="cert-badge" data-fr="Formation" data-en="Training">Formation</div>
                 </div>
             </div>
+
         </div>
     </section>
 
